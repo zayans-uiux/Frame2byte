@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -11,7 +11,7 @@ export default function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square rounded-[3rem] overflow-hidden glass neon-border">
+            <div className="aspect-square rounded-[2rem] sm:rounded-[3rem] overflow-hidden glass neon-border">
               <img
                 src="/images/zayanintro.jpg"
                 alt="Zayan Shaikh"
@@ -19,9 +19,9 @@ export default function About() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-8 -right-8 glass p-8 rounded-3xl neon-glow">
-              <div className="text-brand-orange font-display font-bold text-xl mb-1">Zayan Shaikh</div>
-              <div className="text-white/50 text-sm font-medium">Founder & Creative Director</div>
+            <div className="absolute -bottom-6 right-4 sm:-bottom-8 sm:-right-8 glass p-5 sm:p-8 rounded-2xl sm:rounded-3xl neon-glow border border-brand-orange/20 max-w-[calc(100%-2rem)]">
+              <div className="text-brand-orange font-display font-bold text-lg sm:text-xl mb-1">Zayan Shaikh</div>
+              <div className="text-white/50 text-xs sm:text-sm font-medium">Founder & Creative Director</div>
             </div>
           </motion.div>
 

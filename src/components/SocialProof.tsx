@@ -27,7 +27,7 @@ export default function SocialProof() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass rounded-3xl p-8 md:p-12 grid md:grid-cols-3 gap-8 items-center"
+          className="glass rounded-[2rem] sm:rounded-3xl p-6 sm:p-8 md:p-12 grid md:grid-cols-3 gap-8 items-center"
         >
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center md:items-start text-center md:text-left gap-2">

@@ -4,18 +4,17 @@ import { Play, X, ChevronLeft } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
 
 const reelVideos = [
-  { id: 1, title: 'Video 1', src: '/videos/video1.mp4' },
-  { id: 3, title: 'Video 3', src: '/videos/video3.mp4' },
-  { id: 7, title: 'Video 7', src: '/videos/video7.mp4' },
-  { id: 8, title: 'Video 8', src: '/videos/video8.mp4' },
-  { id: 9, title: 'Video 9', src: '/videos/video9.mp4' },
-  { id: 12, title: 'Video 12', src: '/videos/video12.mp4' },
+  { id: 1, title: 'High-Retention Narrative', src: '/videos/video1.mp4' },
+  { id: 2, title: 'Dynamic VFX Showcase', src: '/videos/video3.mp4' },
+  { id: 3, title: 'Engagement Retention Reel', src: '/videos/video7.mp4' },
+  { id: 4, title: 'Viral Brand Commercial', src: '/videos/video8.mp4' },
 ];
 
 const visualDesigns = [
-  { id: 1, title: 'IMGWE1', src: '/images/imagee1.jpeg' },
-  { id: 2, title: 'IMGWE2', src: '/images/imagee2.jpeg' },
-  { id: 3, title: 'IMAGES2', src: '/images/images2.png' },
+  { id: 1, title: 'Premium Brand Aesthetics', src: '/images/imagee2.jpeg' },
+  { id: 2, title: 'E-Commerce Presentation', src: '/images/images2.png' },
+  { id: 3, title: 'High-Growth Poster Design', src: '/images/images3.png' },
+  { id: 4, title: 'Social Launch Visual', src: '/images/whatsapp_post.jpeg' },
 ];
 
 function Modal({ isOpen, onClose, children }: { isOpen: boolean, onClose: () => void, children: React.ReactNode }) {
@@ -119,7 +118,7 @@ function VideoCard({ item, index, onDoubleClick }: { item: any, index: number, o
       onClick={togglePlay}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group relative aspect-[9/16] rounded-[2.5rem] overflow-hidden glass border border-white/10 bg-black cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-700 hover:shadow-brand-orange/20 hover:border-brand-orange/30 hover:scale-[1.02]"
+      className="group relative aspect-[9/16] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden glass border border-white/10 bg-black cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-all duration-700 hover:shadow-brand-orange/20 hover:border-brand-orange/30 hover:scale-[1.02]"
     >
       <video
         ref={videoRef}
@@ -157,7 +156,7 @@ function ImageCard({ item, index, onClick }: { item: any, index: number, onClick
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
       onClick={onClick}
-      className="group relative aspect-square rounded-[2rem] overflow-hidden glass border border-white/10 bg-black cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-700 hover:shadow-brand-orange/30 hover:border-brand-orange/40 hover:scale-[1.03]"
+      className="group relative aspect-square rounded-[1.2rem] md:rounded-[2rem] overflow-hidden glass border border-white/10 bg-black cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-700 hover:shadow-brand-orange/30 hover:border-brand-orange/40 hover:scale-[1.03]"
     >
       <img
         src={item.src}
@@ -186,13 +185,13 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="py-24 relative overflow-hidden">
+    <section id="portfolio" className="py-12 md:py-24 relative overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-brand-orange/5 blur-[120px] rounded-full -z-10" />
       <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-brand-orange/5 blur-[120px] rounded-full -z-10" />
 
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -213,12 +212,12 @@ export default function Portfolio() {
         </div>
 
         {/* Video Work Row */}
-        <div className="mb-24">
-          <div className="flex items-center gap-6 mb-12">
+        <div className="mb-12 md:mb-24">
+          <div className="flex items-center gap-6 mb-6 md:mb-12">
             <h3 className="text-xl font-bold text-white uppercase tracking-widest">Video Work</h3>
             <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
             {reelVideos.map((item, i) => (
               <VideoCard key={item.id} item={item} index={i} onDoubleClick={() => openModal({ ...item, type: 'video' })} />
             ))}
@@ -226,27 +225,27 @@ export default function Portfolio() {
         </div>
 
         {/* Design Work Row */}
-        <div className="mb-16">
-          <div className="flex items-center gap-6 mb-12">
+        <div className="mb-8 md:mb-16">
+          <div className="flex items-center gap-6 mb-6 md:mb-12">
             <h3 className="text-xl font-bold text-white uppercase tracking-widest text-right">AI & Creative Designs</h3>
             <div className="h-px flex-1 bg-gradient-to-l from-white/20 to-transparent" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
             {visualDesigns.map((item, i) => (
               <ImageCard key={item.id} item={item} index={i} onClick={() => openModal({ ...item, type: 'image' })} />
             ))}
           </div>
         </div>
 
-        <div className="mt-24 text-center">
+        <div className="mt-10 md:mt-24 text-center px-4">
           <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-block"
+            className="inline-block w-full sm:w-auto"
           >
             <Link
               to="/portfolio"
-              className="px-12 py-5 glass glass-hover rounded-2xl font-bold text-lg border-brand-orange/30 shadow-[0_0_20px_rgba(255,106,0,0.1)] hover:shadow-[0_0_30px_rgba(255,106,0,0.2)] transition-all"
+              className="px-8 py-4 sm:px-12 sm:py-5 glass glass-hover rounded-2xl font-bold text-base sm:text-lg border-brand-orange/30 shadow-[0_0_20px_rgba(255,106,0,0.1)] hover:shadow-[0_0_30px_rgba(255,106,0,0.2)] transition-all block text-center"
             >
               EXPLORE FULL SHOWCASE
             </Link>

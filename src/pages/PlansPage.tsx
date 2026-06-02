@@ -62,9 +62,14 @@ const packages = [
   }
 ];
 
-export default function Pricing() {
+export default function PlansPage() {
   return (
-    <section id="plans" className="py-10 md:py-24 relative overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="pt-20 lg:pt-32 pb-12 lg:pb-24 min-h-screen bg-brand-black relative overflow-hidden"
+    >
       {/* Background Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-orange/5 blur-[120px] rounded-full -z-10" />
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-brand-orange/5 blur-[100px] rounded-full -z-10" />
@@ -75,8 +80,7 @@ export default function Pricing() {
         <div className="text-center mb-8 lg:mb-16 max-w-3xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/15 border border-brand-orange/30 shadow-[0_0_25px_rgba(255,106,0,0.15)] mb-4 lg:mb-6"
           >
             <span className="text-xs font-bold tracking-[0.2em] text-brand-orange uppercase">
@@ -84,21 +88,20 @@ export default function Pricing() {
             </span>
           </motion.div>
           
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mt-2 mb-3 tracking-tight text-white"
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-3 lg:mb-6 tracking-tight"
           >
             Monthly <span className="text-brand-orange text-gradient">Content Plans</span>
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-white/85 text-xs sm:text-lg md:text-xl font-medium tracking-wide max-w-2xl mx-auto"
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white/80 text-sm lg:text-lg md:text-xl font-medium tracking-wide max-w-2xl mx-auto"
           >
             Looking for ongoing content and social media support? Choose a monthly plan designed for consistent growth.
           </motion.p>
@@ -153,7 +156,7 @@ export default function Pricing() {
                 {pkg.desc}
               </p>
 
-              <div className="flex-grow space-y-2 sm:space-y-4 mb-6 sm:mb-10 border-t border-white/5 pt-4 sm:pt-6">
+              <div className="flex-grow space-y-2 sm:space-y-4 mb-6 sm:mb-10 lg:border-t border-white/5 pt-4 sm:pt-6">
                 <p className="text-[9px] sm:text-[10px] font-bold text-brand-orange uppercase tracking-widest mb-2 sm:mb-4 text-left">INCLUDED DELIVERABLES:</p>
                 {pkg.features.map((feature, j) => {
                   const isFeatureObj = typeof feature === 'object';
@@ -179,11 +182,11 @@ export default function Pricing() {
 
               <Link
                 to="/contact#instagram-contact"
-                className={`w-full py-3 sm:py-4.5 rounded-xl sm:rounded-2xl font-bold text-center tracking-wider text-[11px] sm:text-base uppercase transition-all duration-300 active:scale-95 flex items-center justify-center ${
+                className={`w-full py-4.5 rounded-2xl font-bold text-center tracking-wider text-base uppercase transition-all duration-300 active:scale-95 flex items-center justify-center ${
                   pkg.popular 
                     ? 'orange-gradient text-white shadow-[0_0_30px_rgba(255,106,0,0.35)] hover:shadow-[0_0_40px_rgba(255,106,0,0.6)] hover:scale-[1.02]' 
                     : pkg.highlight
-                      ? 'bg-yellow-500/10 hover:bg-yellow-500/15 border border-yellow-500/30 text-yellow-500 hover:scale-[1.01] shadow-[0_0_20px_rgba(234,179,8,0.15)]'
+                      ? 'bg-yellow-500/10 hover:bg-yellow-500/15 border border-yellow-500/30 text-yellow-500 hover:scale-[1.01] shadow-[0_0_20px_rgba(234,179,8,0.1)]'
                       : 'glass glass-hover border border-white/10 text-white/90 hover:border-brand-orange/50 hover:text-white'
                 }`}
               >
@@ -223,6 +226,6 @@ export default function Pricing() {
         </motion.div>
 
       </div>
-    </section>
+    </motion.div>
   );
 }

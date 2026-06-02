@@ -7,8 +7,8 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About Me', href: '/#about' },
   { name: 'Our Work', href: '/portfolio' },
-  { name: 'Plans', href: '/#plans' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Services', href: '/services' },
+  { name: 'Plans', href: '/plans' },
 ];
 
 export default function Navbar() {
@@ -85,7 +85,10 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button
+          className="md:hidden text-white p-3 -mr-3 rounded-full hover:bg-white/10 active:bg-white/20 transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -95,7 +98,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full left-0 right-0 bg-brand-black border-b border-white/10 p-6 flex flex-col gap-4 md:hidden"
+          className="absolute top-full left-0 right-0 bg-brand-black/95 backdrop-blur-3xl border-b border-white/10 p-6 flex flex-col gap-4 md:hidden"
         >
           {navLinks.map((link) => (
             <Link

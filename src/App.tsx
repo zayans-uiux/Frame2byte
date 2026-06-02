@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
+import ServicesPage from './pages/ServicesPage';
+import PlansPage from './pages/PlansPage';
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean, error: Error | null }> {
   constructor(props: { children: ReactNode }) {
@@ -56,7 +58,8 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/services" element={<Navigate to="/" replace />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/plans" element={<PlansPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
